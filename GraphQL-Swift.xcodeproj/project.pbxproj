@@ -1,0 +1,413 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CCEF70A7226939CD0050D0C5 /* GQLErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */; };
+		CCF5B2A22268FC7D002CB832 /* GraphQL_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CCF5B2A02268FC7D002CB832 /* GraphQL_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CCF5B2AA2268FD7E002CB832 /* GQLAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */; };
+		CCF5B2AC22690019002CB832 /* GQLAPIDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */; };
+		CCF5B2AE22690043002CB832 /* GQLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2AD22690043002CB832 /* GQLRequest.swift */; };
+		CCF5B2B4226900A2002CB832 /* GQLRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */; };
+		CCF5B2B6226900F6002CB832 /* GQLAPIDefinitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */; };
+		CCF5B2B922690151002CB832 /* GQLNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B822690151002CB832 /* GQLNetworkController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLErrorParser.swift; sourceTree = "<group>"; };
+		CCF5B29D2268FC7D002CB832 /* GraphQL_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphQL_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CCF5B2A02268FC7D002CB832 /* GraphQL_Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphQL_Swift.h; sourceTree = "<group>"; };
+		CCF5B2A12268FC7D002CB832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLAuthorization.swift; sourceTree = "<group>"; };
+		CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLAPIDefinition.swift; sourceTree = "<group>"; };
+		CCF5B2AD22690043002CB832 /* GQLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLRequest.swift; sourceTree = "<group>"; };
+		CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLRequestError.swift; sourceTree = "<group>"; };
+		CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLAPIDefinitionError.swift; sourceTree = "<group>"; };
+		CCF5B2B822690151002CB832 /* GQLNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLNetworkController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CCF5B29A2268FC7D002CB832 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CCF5B2932268FC7D002CB832 = {
+			isa = PBXGroup;
+			children = (
+				CCF5B29F2268FC7D002CB832 /* GraphQL-Swift */,
+				CCF5B29E2268FC7D002CB832 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CCF5B29E2268FC7D002CB832 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B29D2268FC7D002CB832 /* GraphQL_Swift.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CCF5B29F2268FC7D002CB832 /* GraphQL-Swift */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2B72269013D002CB832 /* Controllers */,
+				CCF5B2B122690072002CB832 /* Structs */,
+				CCF5B2B022690069002CB832 /* Extensions */,
+				CCF5B2AF2269005A002CB832 /* Enumerations */,
+				CCF5B2A82268FD41002CB832 /* Protocols */,
+				CCF5B2A02268FC7D002CB832 /* GraphQL_Swift.h */,
+				CCF5B2A12268FC7D002CB832 /* Info.plist */,
+			);
+			path = "GraphQL-Swift";
+			sourceTree = "<group>";
+		};
+		CCF5B2A82268FD41002CB832 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */,
+				CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */,
+				CCF5B2AD22690043002CB832 /* GQLRequest.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		CCF5B2AF2269005A002CB832 /* Enumerations */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2B222690085002CB832 /* Errors */,
+			);
+			path = Enumerations;
+			sourceTree = "<group>";
+		};
+		CCF5B2B022690069002CB832 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		CCF5B2B122690072002CB832 /* Structs */ = {
+			isa = PBXGroup;
+			children = (
+				CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */,
+			);
+			path = Structs;
+			sourceTree = "<group>";
+		};
+		CCF5B2B222690085002CB832 /* Errors */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */,
+				CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */,
+			);
+			path = Errors;
+			sourceTree = "<group>";
+		};
+		CCF5B2B72269013D002CB832 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2B822690151002CB832 /* GQLNetworkController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CCF5B2982268FC7D002CB832 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF5B2A22268FC7D002CB832 /* GraphQL_Swift.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CCF5B29C2268FC7D002CB832 /* GraphQL-Swift */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CCF5B2A52268FC7D002CB832 /* Build configuration list for PBXNativeTarget "GraphQL-Swift" */;
+			buildPhases = (
+				CCF5B2982268FC7D002CB832 /* Headers */,
+				CCF5B2992268FC7D002CB832 /* Sources */,
+				CCF5B29A2268FC7D002CB832 /* Frameworks */,
+				CCF5B29B2268FC7D002CB832 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "GraphQL-Swift";
+			productName = "GraphQL-Swift";
+			productReference = CCF5B29D2268FC7D002CB832 /* GraphQL_Swift.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CCF5B2942268FC7D002CB832 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "Nomad Company";
+				TargetAttributes = {
+					CCF5B29C2268FC7D002CB832 = {
+						CreatedOnToolsVersion = 10.2;
+						LastSwiftMigration = 1020;
+					};
+				};
+			};
+			buildConfigurationList = CCF5B2972268FC7D002CB832 /* Build configuration list for PBXProject "GraphQL-Swift" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CCF5B2932268FC7D002CB832;
+			productRefGroup = CCF5B29E2268FC7D002CB832 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CCF5B29C2268FC7D002CB832 /* GraphQL-Swift */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CCF5B29B2268FC7D002CB832 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CCF5B2992268FC7D002CB832 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CCF5B2AC22690019002CB832 /* GQLAPIDefinition.swift in Sources */,
+				CCF5B2B922690151002CB832 /* GQLNetworkController.swift in Sources */,
+				CCF5B2AE22690043002CB832 /* GQLRequest.swift in Sources */,
+				CCF5B2B6226900F6002CB832 /* GQLAPIDefinitionError.swift in Sources */,
+				CCF5B2AA2268FD7E002CB832 /* GQLAuthorization.swift in Sources */,
+				CCF5B2B4226900A2002CB832 /* GQLRequestError.swift in Sources */,
+				CCEF70A7226939CD0050D0C5 /* GQLErrorParser.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CCF5B2A32268FC7D002CB832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		CCF5B2A42268FC7D002CB832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		CCF5B2A62268FC7D002CB832 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "GraphQL-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nomadgo.GraphQL-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		CCF5B2A72268FC7D002CB832 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_IDENTITY = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "GraphQL-Swift/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "nomadgo.GraphQL-Swift";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CCF5B2972268FC7D002CB832 /* Build configuration list for PBXProject "GraphQL-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF5B2A32268FC7D002CB832 /* Debug */,
+				CCF5B2A42268FC7D002CB832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CCF5B2A52268FC7D002CB832 /* Build configuration list for PBXNativeTarget "GraphQL-Swift" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CCF5B2A62268FC7D002CB832 /* Debug */,
+				CCF5B2A72268FC7D002CB832 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CCF5B2942268FC7D002CB832 /* Project object */;
+}
