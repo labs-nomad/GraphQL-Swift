@@ -22,7 +22,7 @@ public protocol GQLAPIDefinition {
     func asURLRequest() throws -> URLRequest
 }
 
-extension GQLAPIDefinition {
+public extension GQLAPIDefinition {
     func asURLRequest() throws -> URLRequest {
         guard let url = URL(string: self.rootRESTURLString) else {
             throw GQLAPIDefinitionError.couldNotConstructRequest
