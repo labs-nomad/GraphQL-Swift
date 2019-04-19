@@ -10,7 +10,7 @@ import Foundation
 
 public protocol GQLAPIDefinition {
     /// The authorization for this API
-    var authorization: GQLAuthorization? { get }
+    var authorization: GQLAuthorization? { get set }
     /// The root URL for REST requests
     var rootRESTURLString: String { get }
     /// The root URL for websocket requests.
