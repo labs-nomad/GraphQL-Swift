@@ -10,7 +10,7 @@ import Foundation
 
 
 /// Protocol that defines what a native GraphQL request needs.
-protocol GQLRequest {
+public protocol GQLRequest {
     /// This associated type should map to the type or types that this request is trying to perform GraphQL on.
     associatedtype Result: Decodable, Encodable
     

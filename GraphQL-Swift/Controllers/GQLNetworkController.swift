@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct GraphQLNetworkController {
+public struct GraphQLNetworkController {
     //MARK: Properties
     private let definition: GQLAPIDefinition!
     

@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol GQLAPIDefinition {
+public protocol GQLAPIDefinition {
     /// The authorization for this API
     var authorization: GQLAuthorization? { get }
     /// The root URL for REST requests
