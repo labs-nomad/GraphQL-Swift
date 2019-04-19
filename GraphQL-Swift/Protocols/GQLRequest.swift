@@ -78,6 +78,4 @@ extension GQLRequest {
         let queryDictionary = try self.queryDictionary()
         return try JSONSerialization.data(withJSONObject: queryDictionary, options: .prettyPrinted)
     }
-    
-    
 }
