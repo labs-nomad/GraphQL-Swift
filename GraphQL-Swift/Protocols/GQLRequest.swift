@@ -12,7 +12,7 @@ import Foundation
 /// Protocol that defines what a native GraphQL request needs.
 public protocol GQLRequest {
     /// This associated type should map to the type or types that this request is trying to perform GraphQL on.
-    associatedtype Result: Decodable, Encodable
+    associatedtype Result
     
     /**
     This is the GraphQL string that is the literal GraphQL that you want to send. Recommended to to a milti-line strign literal like this:
