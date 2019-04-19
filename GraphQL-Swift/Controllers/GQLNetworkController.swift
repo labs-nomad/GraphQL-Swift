@@ -10,7 +10,7 @@ import Foundation
 
 public struct GraphQLNetworkController {
     //MARK: Properties
-    private let definition: GQLAPIDefinition!
+    public let definition: GQLAPIDefinition!
     
     //MARK: Init
     public init(apiDefinition definition: GQLAPIDefinition) {
