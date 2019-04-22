@@ -25,7 +25,7 @@ public protocol GQLRequest {
     var graphQLLiteral: String { get }
     
     /// Some GraphQL statements make use of variables. In fact most of them should. This represents the variables.
-    var variables: [String: Any] { get }
+    var variables: [String: Any]? { get }
     
     /// Function that returns a dictionary that represents Swift version of the data that needs to be passed to the server to perform a Graph Query.
     ///
@@ -35,9 +35,9 @@ public protocol GQLRequest {
     
     /// The Dictionary that represents the varaibles in a GraphQL Request needs to be converted into a JSON strign. This function accomplishes that.
     ///
-    /// - Returns: The JSON Encoded string.
+    /// - Returns: The JSON Encoded string or nil if the `varaibles` property is nil.
     /// - Throws: An error if the dictionary could not be seralized correctly.
-    func variablesString() throws -> String
+    func variablesString() throws -> String?
     
     /// The Swift dictionary in the form of `["query": <myQuery>, "variables": <variables>]` encoded as data that is ready to be sent in the POST body of the graph QL Request.
     ///
@@ -59,13 +59,19 @@ public protocol GQLRequest {
 
 public extension GQLRequest {
     func queryDictionary() throws -> [String: Any] {
-        let variablesString = try self.variablesString()
-        return ["query": "\(self.graphQLLiteral)", "variables": variablesString]
+        if let variablesString = try self.variablesString() {
+            return ["query": "\(self.graphQLLiteral)", "variables": variablesString]
+        }else {
+            return ["query": "\(self.graphQLLiteral)"]
+        }
     }
     
     
-    func variablesString() throws -> String {
-        let variablesData = try JSONSerialization.data(withJSONObject: self.variables, options: .prettyPrinted)
+    func variablesString() throws -> String? {
+        guard let unwrappedVaraibles = self.variables else {
+            return nil
+        }
+        let variablesData = try JSONSerialization.data(withJSONObject: unwrappedVaraibles, options: .prettyPrinted)
         
         guard let variablesString = String(data: variablesData, encoding: .utf8) else {
             throw GQLRequestError.couldNotConvertToString
