@@ -18,11 +18,11 @@ struct MockQuery: GQLRequest {
     }
     """
     
-    var variables: [String : Any]
+    var variables: [String : Any]?
     
     
     init() {
-        self.variables = [:]
+        
     }
     
 }
