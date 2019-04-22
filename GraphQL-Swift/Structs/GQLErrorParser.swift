@@ -37,6 +37,10 @@ public struct GQLErrorParser {
         switch error {
         case .couldNotConvertToString:
             return NSLocalizedString("Could not convert 'varaibles' to string", comment: "A type cast error in programming.")
+        case .couldNotParseResponse:
+            return NSLocalizedString("Could not parse HTTP Response or Data", comment: "Could not parse error.")
+        case .invalidStatusCode(code: let value):
+            return NSLocalizedString("Invlaid response code: \(value)", comment: "Invalid response code from server.")
         }
     }
     

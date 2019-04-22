@@ -11,4 +11,6 @@ import Foundation
 
 enum GQLRequestError: Error {
     case couldNotConvertToString
+    case invalidStatusCode(code: Int)
+    case couldNotParseResponse
 }
