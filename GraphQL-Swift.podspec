@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
     s.name = 'GraphQL-Swift'
-    s.version = '1.0.18'
+    s.version = '1.0.19'
     s.summary = 'Make basic GraphQL requests using `URLSession`'
     s.description = <<-DESC 
     Written in Swift 5 this library allows you to define an `GQLAPIConnection` and pass `GQLRequests` into a POST HTTP request.
@@ -24,7 +24,7 @@ Pod::Spec.new do |s|
     
     s.ios.deployment_target = '11.0'
 
-    s.source_files = '**/*.{h,m,swift}'
+    s.source_files = 'GraphQL-Swift/**/*.{h,m,swift}'
   
     s.swift_version = '5'
     # s.resource_bundles = {
