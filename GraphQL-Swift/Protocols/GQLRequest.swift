@@ -20,6 +20,8 @@ public protocol GQLRequest {
             name
         }
      }
+     
+    If you are using fragments you will have to include your fragment names in this literal. This library does not have real time checking or insertion of fragments. Yet.
     """
     **/
     var graphQLLiteral: String { get }

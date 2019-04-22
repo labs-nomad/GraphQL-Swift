@@ -28,6 +28,10 @@ public struct GQLErrorParser {
             return self.string(e)
         case let e as GQLAPIDefinitionError:
             return self.string(e)
+        case let e as GQLResultsParsingError:
+            return self.string(e)
+        case let e as NSError:
+            return e.localizedDescription
         default:
             return NSLocalizedString("An error occured. We don't have any other information.", comment: "Generic error message")
         }
@@ -50,6 +54,15 @@ public struct GQLErrorParser {
             return NSLocalizedString("We could not make the required authorization header", comment: "Something about the request could not be constructed.")
         case .couldNotConstructRequest:
             return NSLocalizedString("We could not construct the request.", comment: "Something about the request could not be constructed.")
+        }
+    }
+    
+    private func string(_ error: GQLResultsParsingError) -> String {
+        switch error {
+        case .couldNotMapQueryKey:
+            return NSLocalizedString("We could not parse the results from the Nomad API. Specifically, we could not map the query key.", comment: "Error parsing returned results")
+        case .noDataKey:
+            return NSLocalizedString("We could not parse the results from the Nomad API. Specifically, we could not get a result for the 'data' key.", comment: "Error parsing returned results")
         }
     }
     
