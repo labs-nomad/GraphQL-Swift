@@ -26,9 +26,6 @@ public struct GraphQLNetworkController {
         
         var urlRequest = try self.definition.asURLRequest()
         
-        //https://github.com/Yelp/yelp-fusion/issues/251
-        urlRequest.addValue("en_US", forHTTPHeaderField: "Accept-Language")
-        
         urlRequest.httpBody = try! request.queryData()
         
         let task = URLSession.shared.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
@@ -42,7 +39,7 @@ public struct GraphQLNetworkController {
                 return
             }
             
-            guard let parsedData = json["data"] as?[String: Any] else {
+            guard let parsedData = json["data"] as? [String: Any] else {
                 completion([:])
                 return
             }
