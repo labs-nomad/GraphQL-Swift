@@ -18,7 +18,7 @@ public extension Dictionary where Key == String {
         return data
     }
     
-    func parse(queryKey key: String) throws -> [String: Any] {
+    func parseDictionaryResults(queryKey key: String) throws -> [String: Any] {
         let data = try self.parseDataKey()
         guard let results = data[key] as? [String: Any] else {
             throw GQLResultsParsingError.couldNotMapQueryKey
@@ -26,7 +26,7 @@ public extension Dictionary where Key == String {
         return results
     }
     
-    func parse(queryKey key: String) throws -> [[String: Any]] {
+    func parseArrayResults(queryKey key: String) throws -> [[String: Any]] {
         let data = try self.parseDataKey()
         guard let results = data[key] as? [[String: Any]] else {
             throw GQLResultsParsingError.couldNotMapQueryKey
