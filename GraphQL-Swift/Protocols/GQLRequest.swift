@@ -54,10 +54,10 @@ public extension GQLRequest {
         }
         
         guard let variables = self.variables else {
-            return ["query": "\(self.graphQLLiteral)"]
+            return ["query": "\(literal)"]
         }
         
-        return ["query": "\(self.graphQLLiteral)", "variables": variables]
+        return ["query": "\(literal)", "variables": variables]
     }
     
     func queryData() throws -> Data {
