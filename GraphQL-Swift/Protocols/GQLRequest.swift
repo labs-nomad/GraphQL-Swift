@@ -33,11 +33,11 @@ public protocol GQLRequest {
     /// - Throws: An error if the dictionary could not be constructed.
     func queryDictionary() throws -> [String: Any]
     
-    /// The Dictionary that represents the varaibles in a GraphQL Request needs to be converted into a JSON strign. This function accomplishes that.
-    ///
-    /// - Returns: The JSON Encoded string or nil if the `varaibles` property is nil.
-    /// - Throws: An error if the dictionary could not be seralized correctly.
-    func variablesString() throws -> String?
+//    /// The Dictionary that represents the varaibles in a GraphQL Request needs to be converted into a JSON strign. This function accomplishes that.
+//    ///
+//    /// - Returns: The JSON Encoded string or nil if the `varaibles` property is nil.
+//    /// - Throws: An error if the dictionary could not be seralized correctly.
+//    func variablesString() throws -> String?
     
     /// The Swift dictionary in the form of `["query": <myQuery>, "variables": <variables>]` encoded as data that is ready to be sent in the POST body of the graph QL Request.
     ///
@@ -59,11 +59,10 @@ public protocol GQLRequest {
 
 public extension GQLRequest {
     func queryDictionary() throws -> [String: Any] {
-        if let variablesString = try self.variablesString() {
-            return ["query": "\(self.graphQLLiteral)", "variables": variablesString]
-        }else {
+        guard let variables = self.variables else {
             return ["query": "\(self.graphQLLiteral)"]
         }
+        return ["query": "\(self.graphQLLiteral)", "variables": variables]
     }
     
     
