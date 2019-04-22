@@ -11,9 +11,6 @@ import Foundation
 
 /// Protocol that defines what a native GraphQL request needs.
 public protocol GQLRequest {
-    /// This associated type should map to the type or types that this request is trying to perform GraphQL on.
-    associatedtype Result
-    
     /**
     This is the GraphQL string that is the literal GraphQL that you want to send. Recommended to to a milti-line strign literal like this:
     """
@@ -48,16 +45,19 @@ public protocol GQLRequest {
     /// - Throws: An error if the encoding went wrong.
     func queryData() throws -> Data
     
-    /// A network request returns JSON with the results from the request. It's the requests responsability to decode it into it's associated type. Do that is this function.
-    ///
-    /// - Parameter data: The results of the request
-    /// - Returns: An Array of the associated type
-    /// - Throws: An error if we could not get the associated type from the JSON.
-    func parseResults(_ data: [String: Any]) throws -> [Result]
+//    /// A network request returns JSON with the results from the request. It's the requests responsability to decode it into it's associated type. Do that is this function.
+//    ///
+//    /// - Parameter data: The results of the request
+//    /// - Returns: An Array of the associated type
+//    /// - Throws: An error if we could not get the associated type from the JSON.
+//    func parseResults(_ data: [String: Any]) throws -> [Result]
+//
+//    /// This associated type should map to the type or types that this request is trying to perform GraphQL on.
+//    associatedtype Result
 }
 
 
-extension GQLRequest {
+public extension GQLRequest {
     func queryDictionary() throws -> [String: Any] {
         let variablesString = try self.variablesString()
         return ["query": "\(self.graphQLLiteral)", "variables": variablesString]
