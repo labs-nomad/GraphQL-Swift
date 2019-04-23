@@ -10,6 +10,18 @@ import Foundation
 
 
 public extension Dictionary where Key == String {
+    
+    func jsonData() throws -> Data {
+        let data = try JSONSerialization.data(withJSONObject: self, options: [])
+        return data
+    }
+    
+    func jsonString() throws -> String? {
+        let data = try self.jsonData()
+        return String(data: data, encoding: String.Encoding.utf8)
+    }
+    
+    
     func parseDataKey() throws -> [String: Any] {
         let dataKey = "data"
         guard let data = self[dataKey] as? [String: Any] else {
