@@ -14,12 +14,14 @@ public struct GraphQLNetworkController {
     
     public typealias GQLRequestCompletion = ((_ data: [String: Any]?, _ error: Error?) -> Void)
     
+    private let session: URLSession!
+    
     //MARK: Init
     public init(apiDefinition definition: GQLAPIDefinition) {
         self.definition = definition
         
-        let error = GQLAPIDefinitionError.couldNotConstructRequest
-        print(error)
+        let config = URLSessionConfiguration.ephemeral
+        self.session = URLSession(configuration: config)
     }
     
     //MARK: Functions
@@ -30,7 +32,7 @@ public struct GraphQLNetworkController {
         
         urlRequest.httpBody = try! request.queryData()
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
+        let task = self.session.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
             if let error = p_error {
                 completion?(nil, error)
             }else if let response = p_response as? HTTPURLResponse, let data = p_data {
