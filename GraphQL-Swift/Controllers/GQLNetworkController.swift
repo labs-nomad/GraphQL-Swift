@@ -40,7 +40,6 @@ public class GQLNetworkController: NSObject {
         let task = self.session.dataTask(with: urlRequest)
         
         
-        
         self.completions[task.taskIdentifier] = completion
         
 //        let task = self.session.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
@@ -69,9 +68,13 @@ public class GQLNetworkController: NSObject {
     
 }
 
-extension GQLNetworkController: URLSessionTaskDelegate {
+extension GQLNetworkController: URLSessionDownloadDelegate {
     public func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
         
         print("Finished")
+    }
+    
+    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
+        print("Fininsed download.")
     }
 }
