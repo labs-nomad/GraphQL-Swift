@@ -22,8 +22,7 @@ public class GQLNetworkController: NSObject {
     public init(apiDefinition definition: GQLAPIDefinition) {
         self.definition = definition
         super.init()
-        let config = URLSessionConfiguration.background(withIdentifier: self.backgroundSessionKey)
-        config.isDiscretionary = false
+        let config = URLSessionConfiguration.ephemeral
         self.session = URLSession(configuration: config, delegate: nil, delegateQueue: nil)
     }
     
