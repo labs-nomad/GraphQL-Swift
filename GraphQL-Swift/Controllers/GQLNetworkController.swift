@@ -12,6 +12,8 @@ public struct GraphQLNetworkController {
     //MARK: Properties
     public let definition: GQLAPIDefinition!
     
+    public typealias GQLRequestCompletion = ((_ data: [String: Any]?, _ error: Error?) -> Void)
+    
     //MARK: Init
     public init(apiDefinition definition: GQLAPIDefinition) {
         self.definition = definition
@@ -22,7 +24,7 @@ public struct GraphQLNetworkController {
     
     //MARK: Functions
     
-    public func makeGraphQLRequest<T: GQLRequest>(_ request: T, completion: @escaping(_ data: [String: Any]?, _ error: Error?) -> Void) throws -> URLSessionDataTask {
+    public func makeGraphQLRequest<T: GQLRequest>(_ request: T, completion: GQLRequestCompletion? = nil) throws -> URLSessionDataTask {
         
         var urlRequest = try self.definition.asURLRequest()
         
@@ -30,20 +32,20 @@ public struct GraphQLNetworkController {
         
         let task = URLSession.shared.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
             if let error = p_error {
-                completion(nil, error)
+                completion?(nil, error)
             }else if let response = p_response as? HTTPURLResponse, let data = p_data {
                 switch response.statusCode {
                 case 200...299:
                     guard let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] else {
-                        completion(nil, nil)
+                        completion?(nil, nil)
                         return
                     }
-                    completion(json, nil)
+                    completion?(json, nil)
                 default:
-                    completion(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
+                    completion?(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
                 }
             }else {
-                completion(nil, GQLRequestError.couldNotParseResponse)
+                completion?(nil, GQLRequestError.couldNotParseResponse)
             }
         }
         
