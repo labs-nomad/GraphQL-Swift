@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum GQLAPIDefinitionError: Error {
+public enum GQLAPIDefinitionError: ErrorPrintable {
     case couldNotConstructRequest
     case couldNotConstructAuthorization
 }

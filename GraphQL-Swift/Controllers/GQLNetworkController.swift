@@ -10,24 +10,31 @@ import Foundation
 
 public class GQLNetworkController: NSObject {
     //MARK: Properties
+    /// The definition of the API this networking object was constructed with.
     public let definition: GQLAPIDefinition!
     
+    /// The typealiased completion for network requests. `((_ data: [String: Any]?, _ error: Error?) -> Void)`
     public typealias GQLRequestCompletion = ((_ data: [String: Any]?, _ error: Error?) -> Void)
     
-    private var session: URLSession!
-    
-    let backgroundSessionKey = "GQLNetworkControllerURLSession"
+    private var session: URLSessionProtocol!
     
     //MARK: Init
-    public init(apiDefinition definition: GQLAPIDefinition) {
+    public init(apiDefinition definition: GQLAPIDefinition, session: URLSessionProtocol.Type = URLSession.self) {
         self.definition = definition
         super.init()
         let config = URLSessionConfiguration.ephemeral
-        self.session = URLSession(configuration: config, delegate: nil, delegateQueue: nil)
+        self.session = session.init(configuration: config)
     }
     
     //MARK: Functions
     
+    /// Function to make a GQLRequest over the network.
+    ///
+    /// - Parameters:
+    ///   - request: The object that conforms to the `GQLRequest` protocol.
+    ///   - completion: Optional completion.
+    /// - Returns: A `URLSessionDataTask` that can be cancelled if needed.
+    /// - Throws: If the request could not be constructed for a myriad of reasons we will throw an error before making the network request. Throw the error into the `GQLErrorParser` for a human readable string.
     public func makeGraphQLRequest<T: GQLRequest>(_ request: T, completion: GQLRequestCompletion? = nil) throws -> URLSessionDataTask {
         
         var urlRequest = try self.definition.asURLRequest()
@@ -40,11 +47,15 @@ public class GQLNetworkController: NSObject {
             }else if let response = p_response as? HTTPURLResponse, let data = p_data {
                 switch response.statusCode {
                 case 200...299:
-                    guard let json = try! JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] else {
-                        completion?(nil, nil)
-                        return
+                    do {
+                        guard let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] else {
+                            completion?(nil, GQLResultsParsingError.requestReturnedInvalidJSON)
+                            return
+                        }
+                        completion?(json, nil)
+                    }catch{
+                        completion?(nil, error)
                     }
-                    completion?(json, nil)
                 default:
                     completion?(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
                 }
@@ -57,16 +68,7 @@ public class GQLNetworkController: NSObject {
         
         return task
     }
+ 
     
-}
-
-extension GQLNetworkController: URLSessionDownloadDelegate {
-    public func urlSessionDidFinishEvents(forBackgroundURLSession session: URLSession) {
-        
-        print("Finished")
-    }
     
-    public func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-        print("Fininsed download.")
-    }
 }

@@ -9,6 +9,16 @@
 /* Begin PBXBuildFile section */
 		0B8D147F391FF298692173A1 /* Pods_GraphQL_Swift_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F8B512A53696CAE4BDE83F0 /* Pods_GraphQL_Swift_Tests.framework */; };
 		88A8FE851CC4C8998BF89C4A /* Pods_GraphQL_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 37AA8AC37B51E0BA615FD23E /* Pods_GraphQL_Swift.framework */; };
+		CC26D3532285DA1D00551CF7 /* DictionaryParsing_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC26D3522285DA1D00551CF7 /* DictionaryParsing_Tests.swift */; };
+		CC26D3552285EAA100551CF7 /* JSONStringEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC26D3542285EAA100551CF7 /* JSONStringEncodingError.swift */; };
+		CC26D3572285EB4800551CF7 /* ErrorPrintable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC26D3562285EB4800551CF7 /* ErrorPrintable.swift */; };
+		CC26D35A2285EEFD00551CF7 /* ErrorPrintable_Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC26D3592285EEFD00551CF7 /* ErrorPrintable_Extension.swift */; };
+		CC71653022849D5500707875 /* URLSessionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71652F22849D5500707875 /* URLSessionProtocol.swift */; };
+		CC71653222849DCF00707875 /* URLSessionDataTaskProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71653122849DCF00707875 /* URLSessionDataTaskProtocol.swift */; };
+		CC71653422849E1B00707875 /* URLSession_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71653322849E1B00707875 /* URLSession_Extensions.swift */; };
+		CC71653622849E3400707875 /* URLSessionDataTask_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC71653522849E3400707875 /* URLSessionDataTask_Extensions.swift */; };
+		CC7165382284E5A300707875 /* MockSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7165372284E5A300707875 /* MockSession.swift */; };
+		CC71653A2284E70900707875 /* ArrayParsing_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7165392284E70900707875 /* ArrayParsing_Tests.swift */; };
 		CC7CEA1F226E1D7100F7C541 /* GraphQL_Swift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CCF5B29D2268FC7D002CB832 /* GraphQL_Swift.framework */; };
 		CC7CEA27226E1E1400F7C541 /* GQLAuthorization_Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CEA26226E1E1400F7C541 /* GQLAuthorization_Tests.swift */; };
 		CC7CEA2A226E1EC700F7C541 /* MockGQLAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CEA29226E1EC700F7C541 /* MockGQLAuthorization.swift */; };
@@ -27,6 +37,8 @@
 		CCF5B2B4226900A2002CB832 /* GQLRequestError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */; };
 		CCF5B2B6226900F6002CB832 /* GQLAPIDefinitionError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */; };
 		CCF5B2B922690151002CB832 /* GQLNetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2B822690151002CB832 /* GQLNetworkController.swift */; };
+		CCFA857D22833EEA00EAF681 /* GQLMutation.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFA857C22833EEA00EAF681 /* GQLMutation.swift */; };
+		CCFA858522838F7000EAF681 /* GQLQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCFA858422838F7000EAF681 /* GQLQuery.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +58,16 @@
 		5F32ECB91465BED06791771C /* Pods-GraphQL-Swift.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL-Swift.release.xcconfig"; path = "Target Support Files/Pods-GraphQL-Swift/Pods-GraphQL-Swift.release.xcconfig"; sourceTree = "<group>"; };
 		719000CC767F7AECD870BCCE /* Pods-GraphQL-Swift.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL-Swift.debug.xcconfig"; path = "Target Support Files/Pods-GraphQL-Swift/Pods-GraphQL-Swift.debug.xcconfig"; sourceTree = "<group>"; };
 		9E23E1F4FB7CB4D1635E23C3 /* Pods-GraphQL_Swift_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-GraphQL_Swift_Tests.release.xcconfig"; path = "Target Support Files/Pods-GraphQL_Swift_Tests/Pods-GraphQL_Swift_Tests.release.xcconfig"; sourceTree = "<group>"; };
+		CC26D3522285DA1D00551CF7 /* DictionaryParsing_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryParsing_Tests.swift; sourceTree = "<group>"; };
+		CC26D3542285EAA100551CF7 /* JSONStringEncodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONStringEncodingError.swift; sourceTree = "<group>"; };
+		CC26D3562285EB4800551CF7 /* ErrorPrintable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPrintable.swift; sourceTree = "<group>"; };
+		CC26D3592285EEFD00551CF7 /* ErrorPrintable_Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorPrintable_Extension.swift; sourceTree = "<group>"; };
+		CC71652F22849D5500707875 /* URLSessionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionProtocol.swift; sourceTree = "<group>"; };
+		CC71653122849DCF00707875 /* URLSessionDataTaskProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTaskProtocol.swift; sourceTree = "<group>"; };
+		CC71653322849E1B00707875 /* URLSession_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession_Extensions.swift; sourceTree = "<group>"; };
+		CC71653522849E3400707875 /* URLSessionDataTask_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionDataTask_Extensions.swift; sourceTree = "<group>"; };
+		CC7165372284E5A300707875 /* MockSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockSession.swift; sourceTree = "<group>"; };
+		CC7165392284E70900707875 /* ArrayParsing_Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayParsing_Tests.swift; sourceTree = "<group>"; };
 		CC7CEA1A226E1D7100F7C541 /* GraphQL_Swift_Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GraphQL_Swift_Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC7CEA1E226E1D7100F7C541 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CC7CEA25226E1E1400F7C541 /* GraphQL_Swift_Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GraphQL_Swift_Tests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -68,6 +90,8 @@
 		CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLRequestError.swift; sourceTree = "<group>"; };
 		CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLAPIDefinitionError.swift; sourceTree = "<group>"; };
 		CCF5B2B822690151002CB832 /* GQLNetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLNetworkController.swift; sourceTree = "<group>"; };
+		CCFA857C22833EEA00EAF681 /* GQLMutation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLMutation.swift; sourceTree = "<group>"; };
+		CCFA858422838F7000EAF681 /* GQLQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLQuery.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +135,19 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		CC26D3582285EED000551CF7 /* GQLProtocols */ = {
+			isa = PBXGroup;
+			children = (
+				CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */,
+				CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */,
+				CCF5B2AD22690043002CB832 /* GQLRequest.swift */,
+				CC7CEA3A226E5A5E00F7C541 /* GQLFragment.swift */,
+				CCFA857C22833EEA00EAF681 /* GQLMutation.swift */,
+				CCFA858422838F7000EAF681 /* GQLQuery.swift */,
+			);
+			path = GQLProtocols;
+			sourceTree = "<group>";
+		};
 		CC7CEA1B226E1D7100F7C541 /* GraphQL_Swift_Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +156,8 @@
 				CC7CEA26226E1E1400F7C541 /* GQLAuthorization_Tests.swift */,
 				CC7CEA25226E1E1400F7C541 /* GraphQL_Swift_Tests-Bridging-Header.h */,
 				CC7CEA2D226E266D00F7C541 /* GQLAPIDefinition_Tests.swift */,
+				CC7165392284E70900707875 /* ArrayParsing_Tests.swift */,
+				CC26D3522285DA1D00551CF7 /* DictionaryParsing_Tests.swift */,
 			);
 			path = GraphQL_Swift_Tests;
 			sourceTree = "<group>";
@@ -129,6 +168,7 @@
 				CC7CEA29226E1EC700F7C541 /* MockGQLAuthorization.swift */,
 				CC7CEA2B226E223100F7C541 /* MockAPIDefinition.swift */,
 				CC7CEA2F226E294700F7C541 /* MockQuery.swift */,
+				CC7165372284E5A300707875 /* MockSession.swift */,
 			);
 			path = Objects;
 			sourceTree = "<group>";
@@ -170,10 +210,10 @@
 		CCF5B2A82268FD41002CB832 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */,
-				CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */,
-				CCF5B2AD22690043002CB832 /* GQLRequest.swift */,
-				CC7CEA3A226E5A5E00F7C541 /* GQLFragment.swift */,
+				CC26D3582285EED000551CF7 /* GQLProtocols */,
+				CC71652F22849D5500707875 /* URLSessionProtocol.swift */,
+				CC71653122849DCF00707875 /* URLSessionDataTaskProtocol.swift */,
+				CC26D3562285EB4800551CF7 /* ErrorPrintable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -191,6 +231,9 @@
 			children = (
 				CC7CEA41226E6B2B00F7C541 /* Dictionary_Extensions.swift */,
 				CC7CEA47226E918300F7C541 /* Array_Extensions.swift */,
+				CC71653322849E1B00707875 /* URLSession_Extensions.swift */,
+				CC71653522849E3400707875 /* URLSessionDataTask_Extensions.swift */,
+				CC26D3592285EEFD00551CF7 /* ErrorPrintable_Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +252,7 @@
 				CCF5B2B3226900A2002CB832 /* GQLRequestError.swift */,
 				CCF5B2B5226900F6002CB832 /* GQLAPIDefinitionError.swift */,
 				CC7CEA43226E6C2200F7C541 /* GQLResultsParsingError.swift */,
+				CC26D3542285EAA100551CF7 /* JSONStringEncodingError.swift */,
 			);
 			path = Errors;
 			sourceTree = "<group>";
@@ -243,6 +287,7 @@
 				CC7CEA16226E1D7100F7C541 /* Sources */,
 				CC7CEA17226E1D7100F7C541 /* Frameworks */,
 				CC7CEA18226E1D7100F7C541 /* Resources */,
+				16E49ABE4DE04F5D5028F174 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -329,6 +374,30 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		16E49ABE4DE04F5D5028F174 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-GraphQL_Swift_Tests/Pods-GraphQL_Swift_Tests-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
+				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-GraphQL_Swift_Tests/Pods-GraphQL_Swift_Tests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		843A71C36C05ADEA2A9B8B63 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -380,8 +449,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC7165382284E5A300707875 /* MockSession.swift in Sources */,
 				CC7CEA2E226E266D00F7C541 /* GQLAPIDefinition_Tests.swift in Sources */,
 				CC7CEA2C226E223100F7C541 /* MockAPIDefinition.swift in Sources */,
+				CC71653A2284E70900707875 /* ArrayParsing_Tests.swift in Sources */,
+				CC26D3532285DA1D00551CF7 /* DictionaryParsing_Tests.swift in Sources */,
 				CC7CEA2A226E1EC700F7C541 /* MockGQLAuthorization.swift in Sources */,
 				CC7CEA30226E294700F7C541 /* MockQuery.swift in Sources */,
 				CC7CEA27226E1E1400F7C541 /* GQLAuthorization_Tests.swift in Sources */,
@@ -392,17 +464,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CC26D3552285EAA100551CF7 /* JSONStringEncodingError.swift in Sources */,
+				CC26D3572285EB4800551CF7 /* ErrorPrintable.swift in Sources */,
+				CC71653022849D5500707875 /* URLSessionProtocol.swift in Sources */,
 				CCF5B2AC22690019002CB832 /* GQLAPIDefinition.swift in Sources */,
+				CC26D35A2285EEFD00551CF7 /* ErrorPrintable_Extension.swift in Sources */,
 				CCF5B2B922690151002CB832 /* GQLNetworkController.swift in Sources */,
 				CC7CEA48226E918300F7C541 /* Array_Extensions.swift in Sources */,
 				CCF5B2AE22690043002CB832 /* GQLRequest.swift in Sources */,
 				CCF5B2B6226900F6002CB832 /* GQLAPIDefinitionError.swift in Sources */,
 				CC7CEA3B226E5A5E00F7C541 /* GQLFragment.swift in Sources */,
 				CC7CEA44226E6C2200F7C541 /* GQLResultsParsingError.swift in Sources */,
+				CCFA858522838F7000EAF681 /* GQLQuery.swift in Sources */,
 				CCF5B2AA2268FD7E002CB832 /* GQLAuthorization.swift in Sources */,
 				CC7CEA42226E6B2B00F7C541 /* Dictionary_Extensions.swift in Sources */,
+				CC71653622849E3400707875 /* URLSessionDataTask_Extensions.swift in Sources */,
+				CCFA857D22833EEA00EAF681 /* GQLMutation.swift in Sources */,
+				CC71653422849E1B00707875 /* URLSession_Extensions.swift in Sources */,
 				CCF5B2B4226900A2002CB832 /* GQLRequestError.swift in Sources */,
 				CCEF70A7226939CD0050D0C5 /* GQLErrorParser.swift in Sources */,
+				CC71653222849DCF00707875 /* URLSessionDataTaskProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

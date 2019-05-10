@@ -1,0 +1,6 @@
+framework module Pods_GraphQL_Swift {
+  umbrella header "Pods-GraphQL-Swift-umbrella.h"
+
+  export *
+  module * { export * }
+}

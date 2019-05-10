@@ -9,7 +9,7 @@
 import Foundation
 
 
-enum GQLRequestError: Error {
+public enum GQLRequestError: ErrorPrintable {
     case couldNotConvertToString
     case invalidStatusCode(code: Int)
     case couldNotParseResponse

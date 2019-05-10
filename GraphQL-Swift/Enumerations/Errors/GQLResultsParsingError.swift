@@ -9,7 +9,9 @@
 import Foundation
 
 
-public enum GQLResultsParsingError: Error {
+public enum GQLResultsParsingError: ErrorPrintable {
     case noDataKey
     case couldNotMapQueryKey
+    case noReturningKey
+    case requestReturnedInvalidJSON
 }

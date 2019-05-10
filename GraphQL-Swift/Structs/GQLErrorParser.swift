@@ -30,6 +30,8 @@ public struct GQLErrorParser {
             return self.string(e)
         case let e as GQLResultsParsingError:
             return self.string(e)
+        case let e as JSONStringEncodingError:
+            return self.string(e)
         case let e as NSError:
             return e.localizedDescription
         default:
@@ -60,10 +62,20 @@ public struct GQLErrorParser {
     private func string(_ error: GQLResultsParsingError) -> String {
         switch error {
         case .couldNotMapQueryKey:
-            return NSLocalizedString("We could not parse the results from the Nomad API. Specifically, we could not map the query key.", comment: "Error parsing returned results")
+            return NSLocalizedString("We could not parse the results from the API. Specifically, we could not map the query key.", comment: "Error parsing returned results")
         case .noDataKey:
-            return NSLocalizedString("We could not parse the results from the Nomad API. Specifically, we could not get a result for the 'data' key.", comment: "Error parsing returned results")
+            return NSLocalizedString("We could not parse the results from the API. Specifically, we could not get a result for the 'data' key.", comment: "Error parsing returned results")
+        case .noReturningKey:
+            return NSLocalizedString("We could not find any 'returning' results from the request", comment: "Unable to parse returning portion of the request.")
+        case .requestReturnedInvalidJSON:
+            return NSLocalizedString("The data that was returned from the request could not be converted into JSON", comment: "Could not parse JSON")
         }
     }
     
+    private func string(_ error: JSONStringEncodingError) -> String {
+        switch error {
+        case .stringConstructionFromErrorFailed:
+            return NSLocalizedString("The JSON could not be converted into a readable format", comment: "Failuer to parse native object into stringified JSON")
+        }
+    }
 }
