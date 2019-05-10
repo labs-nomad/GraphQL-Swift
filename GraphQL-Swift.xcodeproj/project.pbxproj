@@ -29,7 +29,6 @@
 		CC7CEA42226E6B2B00F7C541 /* Dictionary_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CEA41226E6B2B00F7C541 /* Dictionary_Extensions.swift */; };
 		CC7CEA44226E6C2200F7C541 /* GQLResultsParsingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CEA43226E6C2200F7C541 /* GQLResultsParsingError.swift */; };
 		CC7CEA48226E918300F7C541 /* Array_Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC7CEA47226E918300F7C541 /* Array_Extensions.swift */; };
-		CCEF70A7226939CD0050D0C5 /* GQLErrorParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */; };
 		CCF5B2A22268FC7D002CB832 /* GraphQL_Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = CCF5B2A02268FC7D002CB832 /* GraphQL_Swift.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CCF5B2AA2268FD7E002CB832 /* GQLAuthorization.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2A92268FD7E002CB832 /* GQLAuthorization.swift */; };
 		CCF5B2AC22690019002CB832 /* GQLAPIDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCF5B2AB22690019002CB832 /* GQLAPIDefinition.swift */; };
@@ -80,7 +79,6 @@
 		CC7CEA41226E6B2B00F7C541 /* Dictionary_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary_Extensions.swift; sourceTree = "<group>"; };
 		CC7CEA43226E6C2200F7C541 /* GQLResultsParsingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLResultsParsingError.swift; sourceTree = "<group>"; };
 		CC7CEA47226E918300F7C541 /* Array_Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array_Extensions.swift; sourceTree = "<group>"; };
-		CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GQLErrorParser.swift; sourceTree = "<group>"; };
 		CCF5B29D2268FC7D002CB832 /* GraphQL_Swift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = GraphQL_Swift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CCF5B2A02268FC7D002CB832 /* GraphQL_Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GraphQL_Swift.h; sourceTree = "<group>"; };
 		CCF5B2A12268FC7D002CB832 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -241,7 +239,6 @@
 		CCF5B2B122690072002CB832 /* Structs */ = {
 			isa = PBXGroup;
 			children = (
-				CCEF70A6226939CD0050D0C5 /* GQLErrorParser.swift */,
 			);
 			path = Structs;
 			sourceTree = "<group>";
@@ -482,7 +479,6 @@
 				CCFA857D22833EEA00EAF681 /* GQLMutation.swift in Sources */,
 				CC71653422849E1B00707875 /* URLSession_Extensions.swift in Sources */,
 				CCF5B2B4226900A2002CB832 /* GQLRequestError.swift in Sources */,
-				CCEF70A7226939CD0050D0C5 /* GQLErrorParser.swift in Sources */,
 				CC71653222849DCF00707875 /* URLSessionDataTaskProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

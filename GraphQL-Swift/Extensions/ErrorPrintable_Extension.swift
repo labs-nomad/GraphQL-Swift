@@ -10,9 +10,9 @@ import Foundation
 
 
 
-public extension ErrorPrintable {
-    func humanReadableString() -> String {
-        let parser = GQLErrorParser()
-        return parser.string(forError: self)
-    }
-}
+//public extension ErrorPrintable {
+//    func humanReadableString() -> String {
+//        let parser = GQLErrorParser()
+//        return parser.string(forError: self)
+//    }
+//}
