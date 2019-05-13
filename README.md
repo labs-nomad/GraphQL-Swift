@@ -14,7 +14,27 @@ This library does not use any other dependencies and focuses on a protocol-orien
 
 To connect to your GraphQL endpoint you need to initalize a `GQLNetworkController`. The initalizer takes an object that conforms to the `GQLAPIDefinition` protocol. By default the `GQLNetworkController` uses a `URLSession` configured to be ephemeral.
 
-When constructing your `GQLAPIDefinition` object you can optionally add an object that conforms to `GQLAuthorization`. From there you can configure your "Authorization" header.
+When constructing your `GQLAPIDefinition` object you can optionally add an object that conforms to `GQLAuthorization`. From there you can configure your "Authorization" header. So something like this...
+
+```swift
+struct MockGQLAuthorization: GQLAuthorization {
+    //MARK: Properties
+    var clientID: String?
+    
+    var apiKey: String?
+    
+    var jwt: String?
+    
+    var authorizationHeader: [String : String] {
+        return ["Authorization": "Bearer \(self.jwt ?? self.apiKey ?? self.clientID ?? "")"]
+    }
+    
+    //MARK: init
+    init() {
+        
+    }
+}
+```
 
 # Query
 
