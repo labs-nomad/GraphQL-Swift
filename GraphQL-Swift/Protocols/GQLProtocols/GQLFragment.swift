@@ -14,7 +14,7 @@ public protocol GQLFragment {
     /**
      The literal GraphQL Fragment. It's recommended to use a swift string literal like this:
      
-     let userDetails = """
+     let fragmentLiteral = """
      fragment Details on user {
         id
         name

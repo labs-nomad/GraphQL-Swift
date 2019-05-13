@@ -62,7 +62,7 @@ let networkController = GQLNetworkController(apiDefinition: mockAPI)
 To make a query or mutation you have to create an object that conforms to `GQLRequest`. Both the `GQLQuery` and `GQLMutation` protocols inherit from `GQLRequest`. Here is a basic query object.
 
 ```swift
-struct UserQuery: GQLRequest {
+struct UserQuery: GQLQuery {
 
     var graphQLLiteral: String = """
     query {
@@ -111,3 +111,65 @@ do {
 ```
 
 # Fragments
+
+You can define a fragment by conforming to the `GQLFragment` protocol.
+
+Here we can refactor our original `UserQuery` to contain a fragment.
+
+```swift
+struct UserDetails: GQLFragment {
+     let fragmentLiteral = """
+     fragment UserDetails on user {
+        id
+        name
+        email
+     }
+     """
+}
+
+struct UserQuery: GQLQuery {
+
+    var graphQLLiteral: String = """
+    query {
+        user {
+            ...UserDetails
+        }
+    }
+    """
+    
+    var fragments: [GQLFragment]? = [UserDetails()]
+    
+    var variables: [String : Any]?
+    
+    init() {
+        
+    }
+    
+}
+```
+
+# Variables
+
+Finally we can pass variables into the query like this.
+
+```swift
+struct UserQuery: GQLQuery {
+
+    var graphQLLiteral: String = """
+    query UserByEmail($email: String!){
+        user(where: {email: {_eq: $email}}, limit: 1) {
+            ...UserDetails
+        }
+    }
+    """
+    
+    var fragments: [GQLFragment]? = [UserDetails()]
+    
+    var variables: [String : Any]?
+    
+    init(email: String) {
+        self.variables = ["email": email]
+    }
+    
+}
+```
