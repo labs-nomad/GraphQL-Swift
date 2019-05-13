@@ -10,8 +10,7 @@ import GraphQL_Swift
 
 
 struct MockQuery: GQLRequest {
-    
-    
+
     var graphQLLiteral: String = """
     query {
         objects {
@@ -23,7 +22,6 @@ struct MockQuery: GQLRequest {
     var fragments: [GQLFragment]?
     
     var variables: [String : Any]?
-    
     
     init() {
         

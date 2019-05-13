@@ -59,3 +59,55 @@ let networkController = GQLNetworkController(apiDefinition: mockAPI)
 
 # Query
 
+To make a query or mutation you have to create an object that conforms to `GQLRequest`. Both the `GQLQuery` and `GQLMutation` protocols inherit from `GQLRequest`. Here is a basic query object.
+
+```swift
+struct UserQuery: GQLRequest {
+
+    var graphQLLiteral: String = """
+    query {
+        user {
+            id
+            email
+            name
+        }
+    }
+    """
+    
+    var fragments: [GQLFragment]?
+    
+    var variables: [String : Any]?
+    
+    init() {
+        
+    }
+    
+}
+```
+
+And you would make the request like this.
+
+```swift
+
+let userQuery = UserQuery()
+
+do {
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
+            if let error = p_error {
+                //Any networking error
+            }else if let results = p_results {
+                do {
+                    let users = try results.parseArrayResults(queryKey: "user")
+                    print(users)
+                }catch{
+                    //Any parsing errors
+                }
+            }
+        })
+}catch{
+    //Any errors that were thrown before the request was made.
+}
+
+```
+
+# Fragments
