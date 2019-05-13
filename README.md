@@ -34,6 +34,27 @@ struct MockGQLAuthorization: GQLAuthorization {
         
     }
 }
+
+struct MockAPIDefinition: GQLAPIDefinition {
+    //MARK: Properties
+    var authorization: GQLAuthorization?
+    
+    var rootRESTURLString: String = "https://mockgraphqlapi.com"
+    
+    var rootWebsocketURLString: String = "wss://mockgraphqlapi.com"
+    
+    //MARK: init
+    init(authorization: GQLAuthorization? = nil) {
+        self.authorization = authorization
+    }
+}
+
+let mockAuth = MockGQLAuthorization()
+
+let mockAPI =  MockAPIDefinition(authorization: mockAuth)
+
+let networkController = GQLNetworkController(apiDefinition: mockAPI)
+
 ```
 
 # Query
