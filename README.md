@@ -88,7 +88,6 @@ struct UserQuery: GQLQuery {
 And you would make the request like this.
 
 ```swift
-
 let userQuery = UserQuery()
 
 do {
@@ -97,7 +96,7 @@ do {
                 //Any networking error
             }else if let results = p_results {
                 do {
-                    let users = try results.parseArrayResults(queryKey: "user")
+                    let users = try results.parseArrayResults(fieldKey: "user")
                     print(users)
                 }catch{
                     //Any parsing errors
@@ -107,7 +106,6 @@ do {
 }catch{
     //Any errors that were thrown before the request was made.
 }
-
 ```
 
 # Fragments
@@ -171,5 +169,60 @@ struct UserQuery: GQLQuery {
         self.variables = ["email": email]
     }
     
+}
+```
+
+# GraphQL JSON Parsing
+
+The general format of JSON that comes back from a GraphQL request can be [read about here](https://medium.com/@joninsky/parsing-json-from-a-graphql-response-854e8a29afef).
+
+The responses from the `.makeGraphQLRequest` function will be the unfilterd or parsed JSON from the request. Since JSON from a GraphQL request does follow some rhyme and reason this library contains some extensions on swift dictionaries to get you started.
+
+1) Pase the data key.
+
+All requests return a dictionary with a data key. Parse that like this:
+
+```swift
+do {
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
+            if let error = p_error {
+                //Any networking error
+            }else if let results = p_results {
+                do {
+                    let dataResults = try results.parseDataKey()
+                    print(dataResults)
+                }catch{
+                    //Any parsing errors
+                }
+            }
+        })
+}catch{
+    //Any errors that were thrown before the request was made.
+}
+```
+2) Parse selection set from high level fields.
+
+If you know the form of the object that comes back from any of your top level fields in your query you can get them like this.
+
+```swift
+do {
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
+            if let error = p_error {
+                //Any networking error
+            }else if let results = p_results {
+                do {
+                    //If your selection set is a dictionary
+                    let users = try results.parseDictionaryResults(fieldKey: "user")
+                    print(users)
+                    //If your selection set is an array
+                    let users = try results.parseArrayResults(fieldKey: "user")
+                    print(users)
+                }catch{
+                    //Any parsing errors
+                }
+            }
+        })
+}catch{
+    //Any errors that were thrown before the request was made.
 }
 ```

@@ -47,10 +47,10 @@ public extension Dictionary where Key == String {
     /// - Parameter key: If you wish to parse the field first you can provide it and the function will try to parse the dictionary out that field first. Otherwise it tires to parse the 'returning' key first
     /// - Returns: An Array of dictionaries.
     /// - Throws: A `GQLResultsParsingError` error.
-    func parseReturningKey(queryKey key: String? = nil) throws -> [[String: Any]] {
+    func parseReturningKey(fieldKey key: String? = nil) throws -> [[String: Any]] {
         let dictiory: [String: Any]
         if let unwrappedKey = key {
-            dictiory = try self.parseDictionaryResults(queryKey: unwrappedKey)
+            dictiory = try self.parseDictionaryResults(fieldKey: unwrappedKey)
         }else {
             dictiory = self
         }
@@ -65,7 +65,7 @@ public extension Dictionary where Key == String {
     /// - Parameter key: The field you are trying to parse.
     /// - Returns: A dictionary with the data
     /// - Throws: An `GQLResultsParsingError.couldNotMapQueryKey` if the function failed to parse the provided key.
-    func parseDictionaryResults(queryKey key: String) throws -> [String: Any] {
+    func parseDictionaryResults(fieldKey key: String) throws -> [String: Any] {
         let data = try self.parseDataKey()
         guard let results = data[key] as? [String: Any] else {
             throw GQLResultsParsingError.couldNotMapQueryKey
@@ -78,7 +78,7 @@ public extension Dictionary where Key == String {
     /// - Parameter key: The field you are trying to parse.
     /// - Returns: A array with the data
     /// - Throws: An `GQLResultsParsingError.couldNotMapQueryKey` if the function failed to parse the provided key.
-    func parseArrayResults(queryKey key: String) throws -> [[String: Any]] {
+    func parseArrayResults(fieldKey key: String) throws -> [[String: Any]] {
         let data = try self.parseDataKey()
         guard let results = data[key] as? [[String: Any]] else {
             throw GQLResultsParsingError.couldNotMapQueryKey
