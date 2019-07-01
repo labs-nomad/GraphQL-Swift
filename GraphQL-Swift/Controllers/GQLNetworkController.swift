@@ -35,7 +35,7 @@ public class GQLNetworkController: NSObject {
     ///   - completion: Optional completion.
     /// - Returns: A `URLSessionDataTask` that can be cancelled if needed.
     /// - Throws: If the request could not be constructed for a myriad of reasons we will throw an error before making the network request. Throw the error into the `GQLErrorParser` for a human readable string.
-    public func makeGraphQLRequest<T: GQLRequest>(_ request: T, completion: GQLRequestCompletion? = nil) throws -> URLSessionDataTask {
+    public func makeGraphQLRequest<T: GQLRequest>(_ request: T, completeOnMainThread: Bool = false, completion: GQLRequestCompletion? = nil) throws -> URLSessionDataTask {
         
         var urlRequest = try self.definition.asURLRequest()
         
@@ -43,24 +43,60 @@ public class GQLNetworkController: NSObject {
         
         let task = self.session.dataTask(with: urlRequest) { (p_data, p_response, p_error) in
             if let error = p_error {
-                completion?(nil, error)
+                if completeOnMainThread == true {
+                    DispatchQueue.main.async {
+                        completion?(nil, error)
+                    }
+                }else {
+                    completion?(nil, error)
+                }
             }else if let response = p_response as? HTTPURLResponse, let data = p_data {
                 switch response.statusCode {
                 case 200...299:
                     do {
                         guard let json = try JSONSerialization.jsonObject(with: data, options: JSONSerialization.ReadingOptions.allowFragments) as? [String: Any] else {
-                            completion?(nil, GQLResultsParsingError.requestReturnedInvalidJSON)
+                            if completeOnMainThread == true {
+                                DispatchQueue.main.async {
+                                    completion?(nil, GQLResultsParsingError.requestReturnedInvalidJSON)
+                                }
+                            }else {
+                                completion?(nil, GQLResultsParsingError.requestReturnedInvalidJSON)
+                            }
                             return
                         }
-                        completion?(json, nil)
+                        if completeOnMainThread == true {
+                            DispatchQueue.main.async {
+                                completion?(json, nil)
+                            }
+                        }else {
+                            completion?(json, nil)
+                        }
                     }catch{
-                        completion?(nil, error)
+                        if completeOnMainThread == true {
+                            DispatchQueue.main.async {
+                                completion?(nil, error)
+                            }
+                        }else {
+                            completion?(nil, error)
+                        }
                     }
                 default:
-                    completion?(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
+                    if completeOnMainThread == true {
+                        DispatchQueue.main.async {
+                            completion?(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
+                        }
+                    }else {
+                        completion?(nil, GQLRequestError.invalidStatusCode(code: response.statusCode))
+                    }
                 }
             }else {
-                completion?(nil, GQLRequestError.couldNotParseResponse)
+                if completeOnMainThread == true {
+                    DispatchQueue.main.async {
+                        completion?(nil, GQLRequestError.couldNotParseResponse)
+                    }
+                }else {
+                    completion?(nil, GQLRequestError.couldNotParseResponse)
+                }
             }
         }
         
@@ -68,7 +104,6 @@ public class GQLNetworkController: NSObject {
         
         return task
     }
- 
     
     
 }
