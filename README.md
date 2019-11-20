@@ -91,12 +91,14 @@ And you would make the request like this.
 let userQuery = UserQuery()
 
 do {
-    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
-            if let error = p_error {
-                //Any networking error
-            }else if let results = p_results {
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (results) in
+            switch results {
+            case GQLNetworkRequestResults.fail(let error):
+                print("Error: \(error)")
+                break
+            case GQLNetworkRequestResults.success(let jsonDictionary):
                 do {
-                    let users = try results.parseArrayResults(fieldKey: "user")
+                    let users = try jsonDictionary.parseArrayResults(fieldKey: "user")
                     print(users)
                 }catch{
                     //Any parsing errors
@@ -184,18 +186,20 @@ All requests return a dictionary with a data key. Parse that like this:
 
 ```swift
 do {
-    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
-            if let error = p_error {
-                //Any networking error
-            }else if let results = p_results {
-                do {
-                    let dataResults = try results.parseDataKey()
-                    print(dataResults)
-                }catch{
-                    //Any parsing errors
-                }
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (results) in
+        switch results {
+        case .fail(let error):
+            print("Error: \(error)")
+            break
+        case .success(let jsonResults):
+            do {
+                let dataResults = try jsonResults.parseDataKey()
+                print(dataResults)
+            }catch{
+                //Any parsing errors
             }
-        })
+        }
+    })
 }catch{
     //Any errors that were thrown before the request was made.
 }
@@ -206,22 +210,24 @@ If you know the form of the object that comes back from any of your top level fi
 
 ```swift
 do {
-    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (p_results, p_error) in
-            if let error = p_error {
-                //Any networking error
-            }else if let results = p_results {
-                do {
-                    //If your selection set is a dictionary
-                    let users = try results.parseDictionaryResults(fieldKey: "user")
-                    print(users)
-                    //If your selection set is an array
-                    let users = try results.parseArrayResults(fieldKey: "user")
-                    print(users)
-                }catch{
-                    //Any parsing errors
-                }
+    let dataTask = try networkController.makeGraphQLRequest(userQuery, completion: { (results) in
+        switch results {
+        case .fail(let error):
+            print("Error: \(error)")
+            break
+        case .success(let dictionary):
+            do {
+                //If your selection set is a dictionary
+                let users = try dictionary.parseDictionaryResults(fieldKey: "user")
+                print(users)
+                //If your selection set is an array
+                let users = try dictionary.parseArrayResults(fieldKey: "user")
+                print(users)
+            }catch{
+                //Any parsing errors
             }
-        })
+        }
+    })
 }catch{
     //Any errors that were thrown before the request was made.
 }
