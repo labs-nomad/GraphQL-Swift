@@ -35,11 +35,12 @@ public extension GQLAPIDefinition {
             return request
         }
         
-        guard let key = authHeader.first?.key, let value = authHeader.first?.value else {
-            throw GQLAPIDefinitionError.couldNotConstructAuthorization
+        for key in authHeader.keys {
+            if let value: String = authHeader[key] {
+                request.addValue(value, forHTTPHeaderField: key)
+            }
         }
-        request.addValue(value, forHTTPHeaderField: key)
-
+        
         return request
     }
 }
